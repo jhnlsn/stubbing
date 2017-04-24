@@ -20,6 +20,8 @@ describe('Zoo', function() {
     all.then(animals => {
       assert.equal(animals.length, 1, 'Animals function should return one result');
       assert.equal(animals[0].name, 'Zebra');
-    }).then(done);
+    }).then(done).finally(() => {
+      stub.restore();
+    });
   });
 })
